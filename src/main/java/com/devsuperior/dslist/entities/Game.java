@@ -47,6 +47,10 @@ public class Game {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -79,6 +83,22 @@ public class Game {
         this.platforms = platforms;
     }
 
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     public String getShortDescription() {
         return shortDescription;
     }
@@ -106,6 +126,8 @@ public class Game {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+
 }
 
 
