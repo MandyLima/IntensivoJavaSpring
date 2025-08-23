@@ -11,100 +11,88 @@ import java.util.Objects;
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //@Column(name = "example_game") modifica o nome de uma coluna especifica no banco de dados
-    private long id;
-    private String titulo;
-    private int ano;
-    private String genero;
-    private String plataforma;
+    private Long id;
+    private String title;
+
+    @Column(name = "game_year") //modifica o nome de uma coluna especifica no banco de dados
+    private int year;
+    private String genre;
+    private String platforms;
     private float score;
     private String imgUrl;
-    private String curtaDescricao;
-    private String longaDescricao;
 
-    public Game(long id, String titulo, int ano, String genero, String plataforma, float score, String imgUrl,
-                String curtaDescricao, String longaDescricao) {
-        this.id = id; //id objeto recebe id do construtor
-        this.titulo = titulo;
-        this.ano = ano;
-        this.genero = genero;
-        this.plataforma = plataforma;
-        this.score = score;
-        this.imgUrl = imgUrl;
-        this.curtaDescricao = curtaDescricao;
-        this.longaDescricao = longaDescricao;
+    @Column(columnDefinition = "TEXT")
+    private String shortDescription;
+
+    @Column(columnDefinition = "TEXT")
+    private String longDescription;
+
+    public Game() {
     }
 
-    public long getId() {
+    public Game(long id, String title, int year, String genre, String platforms, float score, String imgUrl,
+                String shortDescription, String longDescription) {
+        this.id = id;
+        this.title = title;
+        this.year = year;
+        this.genre = genre;
+        this.platforms = platforms;
+        this.score = score;
+        this.imgUrl = imgUrl;
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getTitle() {
+        return title;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public int getYear() {
+        return year;
     }
 
-    public int getAno() {
-        return ano;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
+    public String getGenre() {
+        return genre;
     }
 
-    public String getGenero() {
-        return genero;
+    public void setGenre(String genre) {
+        this.genre = genre;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public String getPlataforma() {
-        return plataforma;
+    public void setPlatforms(String platforms) {
+        this.platforms = platforms;
     }
 
-    public void setPlataforma(String plataforma) {
-        this.plataforma = plataforma;
+    public String getShortDescription() {
+        return shortDescription;
     }
 
-    public float getScore() {
-        return score;
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 
-    public void setScore(float score) {
-        this.score = score;
+    public String getLongDescription() {
+        return longDescription;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
-    }
-
-    public String getCurtaDescricao() {
-        return curtaDescricao;
-    }
-
-    public void setCurtaDescricao(String curtaDescricao) {
-        this.curtaDescricao = curtaDescricao;
-    }
-
-    public String getLongaDescricao() {
-        return longaDescricao;
-    }
-
-    public void setLongaDescricao(String longaDescricao) {
-        this.longaDescricao = longaDescricao;
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
     }
 
     @Override
@@ -119,3 +107,5 @@ public class Game {
         return Objects.hashCode(id);
     }
 }
+
+
